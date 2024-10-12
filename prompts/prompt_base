@@ -1,0 +1,66 @@
+
+######################################################## Desarrollo Iterativo de Prompts
+Ciclo de iteración.
+- Intenta algo.
+- Analiza donde el resultado no te da lo que tu querías. 
+- Clarifica las instrucciones y dale más tiempo para pensar.
+- Refinar las indicaciones con un lote de ejemplos.
+
+#######################################################   
+#######################################################   Base de Prompts Resumida
+
+    Quiero que seas: [Inserta el rol/persona deseada].
+
+    Contexto:
+    [Proporciona el contexto general].
+
+    Tengo una idea:
+    [Describe la idea en detalle].
+
+    Objetivo/Resultado esperado:
+        Tipo de Salida: [Define el tipo de respuesta].
+        Longitud deseada: [Define la extensión de la respuesta].
+        Estilo de respuesta: [Define el estilo o tono].
+
+    ¿Qué te entregaré?
+    [Enumera el material adicional].
+
+    Archivos adjuntos:
+        Instrucciones:
+        [Especifica cómo utilizar los archivos].
+        Utiliza delimitadores """ """.
+
+####################################################  Base de prompts explicada:
+
+Quiero que seas: [Inserta aquí la "persona" o rol que deseas que adopte el modelo. Por ejemplo: "un experto en marketing digital", "un matemático", "un escritor creativo"].
+
+Contexto:
+[Proporciona el contexto general del problema. Describe la situación de manera clara y concisa para que el modelo comprenda de qué trata la tarea. Ejemplo: "Estoy desarrollando un plan de negocios para una startup tecnológica que se enfoca en IA aplicada a la educación."].
+
+Tengo una idea:
+[Describe tu idea en detalle, asegurándote de incluir todos los aspectos clave. Ejemplo: "Quiero crear una campaña publicitaria que utilice videos cortos para atraer a jóvenes de entre 18 y 25 años."].
+
+Objetivo/Resultado esperado:
+
+    Tipo de Salida: [Especifica el tipo de respuesta que deseas. Ejemplo: "Quiero un código Python", "Necesito un esquema para un ensayo", "Quiero una propuesta detallada con argumentos y ejemplos"].
+    Longitud deseada: [Define la extensión de la respuesta. Ejemplo: "Un resumen de 3 párrafos", "5 bullet points"].
+    Estilo de respuesta: [Define el estilo o tono. Ejemplo: "Formal y técnico", "Creativo e informal", "Con ejemplos prácticos"].
+
+¿Qué te entregaré?
+[Enumera cualquier material adicional que adjuntarás, como documentos o información de referencia. Ejemplo: "Te adjunto un PDF con los detalles del mercado objetivo", "Quiero que imites el estilo del documento proporcionado"].
+
+Archivos adjuntos:
+
+    Instrucciones para usar el material:
+    [Especifica cómo el modelo debe utilizar los archivos. Ejemplo: "Utiliza los datos del archivo 'Análisis de Competencia' para fundamentar las propuestas"].
+    Utiliza delimitadores como """ """ para indicar qué partes del texto son referencias o ejemplos que el modelo debe considerar.
+
+######################################################### Prompt que genera prompts
+
+Por favor, genera un resumen conciso de la conversación que hemos tenido, destacando la pregunta inicial, los puntos clave, los comentarios y las correcciones que hice. Utiliza este resumen para construir un prompt optimizado que pueda ser usado como base para continuar esta conversación en un nivel más avanzado. El objetivo del nuevo prompt es sintetizar la información discutida, asegurando que cualquier asistente futuro pueda comprender rápidamente el contexto y brindar una respuesta avanzada y detallada.
+
+Considera lo siguiente:
+
+    Resumir la pregunta inicial de manera clara.
+    Identificar los principales comentarios, correcciones y aclaraciones que se realizaron durante la conversación.
+    Formar un nuevo prompt basado en el resumen, enfocado en un nivel avanzado y guiado por los temas discutidos previamente.
