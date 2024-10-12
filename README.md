@@ -8,7 +8,7 @@ Esta carpeta contiene varios archivos diseñados para apoyar el desarrollo de pr
 - **Tutorial de Plataforma OpenAI:** Un tutorial completo para el uso de la plataforma OpenAI, desde la configuración de modelos personalizados hasta el fine-tuning y la integración con APIs.
 
 ## 🛠 Uso de los Archivos
-Cada archivo de prompt tiene una estructura que facilita su uso:
+Cada archivo de prompt debería tener una estructura que facilita su uso:
 
 1. **Descripción del Prompt:** Explica la intención y el rol esperado del asistente.
 2. **Ejemplo del Prompt:** Proporciona un ejemplo concreto para entender su aplicación.
