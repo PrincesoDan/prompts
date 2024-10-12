@@ -1,0 +1,190 @@
+##################################################### a. Prompts
+##################################################### 
+##################################################### 
+##################################################### 
+
+a.1 ##############################################  Evaluación de ideas: ¿Buenas ideas? 
+Quiero que seas un ingeniero y profesor, experto en startup, la tecnología del blockchain y programador en la blockchain de stellar, que domines soroban rust y typescript. 
+Quiero que me des 3 ideas nuevas para emprender agregando valor o calidad a un servicio o producto a traves de la adopción de la tecnología blockhchain.
+Quiero que evalues la viabilidad y la complejidad de distintas ideas que se puedan mezclar con la tecnología blockchain. 
+
+*Ojala dar plazos y cantidad de personas trabajando para poder hacerse una idea de cuanto sale invertir en innovación blockchain.
+Te voy a dar un punteo de ideas que tengo para evaluar la posible idea. 
+
+ideas:
+"""
+"""  
+  
+  
+a.2 #################################################### pseudocodigo #########################
+#################################################### 
+
+Quiero desarrollar una idea para un proyecto de software y necesito ayuda para crear el pseudocódigo correspondiente. Mi idea es [descripción de la idea]. El objetivo principal de esta idea es [especificar el objetivo]. Quiero que el pseudocódigo sea claro, detallado y estructurado para que pueda usarlo como referencia en el desarrollo.
+
+Aspectos importantes a considerar:
+
+    Los pasos que se deben seguir para alcanzar el objetivo.
+    La lógica de las funciones y métodos que puedan ser necesarios.
+    Cómo manejar las condiciones y posibles excepciones.
+    Si es relevante, incluir interacciones con el usuario y la estructura de datos que se pueda necesitar.
+
+Contexto técnico:
+
+    El lenguaje de programación que tengo en mente es [especificar el lenguaje].
+    El entorno de desarrollo es [detalles sobre el entorno, si es necesario].
+    Quiero [cualquier detalle extra, como manejar usuarios, integrarse con otras plataformas, etc.].
+
+Por favor, proporciona un pseudocódigo detallado basado en estos puntos y adapta la lógica según sea necesario para que sea claro y fácil de implementar.
+
+
+a.3 ##############################################  Hacer contract: Make Build
+
+Quiero que seas...
+Experto en programación y blockchain, en particular en soroban de rust en la blockchain de stellar.
+
+Contexto:
+Quiero hacer aplicaciones que usen la tectnología blockchain de stellar.
+
+Estoy pensando en la entrevista de trabajo que debo llevar una idea y hacerles un live coding y mostrar como la voy desarrollando en vivo, no hay que terminar de desarrollarla, pero si mostrar lo que se haría para desarrolar esa idea. 
+
+Tengo una idea: 
+Escribir idea. 
+
+Qué quiero que me entregues:
+Quiero que me detalles el contrato inteligente para crear el smartcontract (ponle un nombre) y que pueda hacer lo que dijimos arriba. Esto está escrito en rust en especifico en soroban, la ultima librería actualizada. Considerando comentarios en el codigo que expliquen cada función. seudocodigo.
+
+¿Qué te entregaré? ¿Qué quiero que imites?
+Te entregaré un archivo lib.rs de referencia, pero quiero que me entregues el codigo detallado para copiar y pegar del smart contract que debe hacer la "idea". 
+
+Lib.rs
+
+a.4 ##############################################   Hacer un test: Make test
+##############################################   
+##############################################   
+
+Prompt Base Make test
+
+Quiero hacer una prueba para un smart contract en Soroban SDK Rust. La prueba debe considerar el test.rs que te daré de referencia, el lib.rs que es smartcointract a testear y los siguientes puntos para evitar alucinaciones comunes:
+"""
+    Consistencia en invocaciones y argumentos: Utilizar Vec<Val> construidos con un array, para pasar los argumentos a todas las funciones del smart contract cuando se ocupe mockauth en lugar de pasarlos directamente. Los argumentos deben ser convertidos utilizando .into_val(&env) antes de crear el Vec<Val>. Te dejo un ejemplo de guía:
+    """ // Crear un Vec<Val> a partir de un array
+      let args: Vec<Val> = Vec::from_array(&env, [
+        user.into_val(&env), 
+        new_title.clone().into_val(&env)
+    ]);
+
+    // Autenticar al usuario y modificar el título
+    let result = client
+        .mock_auths(&[MockAuth {
+            address: &user,
+            invoke: &MockAuthInvoke {
+                contract: &contract_id,
+                fn_name: "modify_title",
+                args: args.into_val(&env), // Usar el vector como argumento
+                sub_invokes: &[],
+            },
+        }])
+        .modify_title(&user, &new_title);
+
+"""
+
+    Autenticación adecuada: Para invocar las funciones del contrato, siempre utilizar client.mock_auths() y definir correctamente MockAuth con el contrato, función (fn_name), y argumentos. Además, asegúrate de que los sub-invokes se definan como sub_invokes: &[].
+
+    Eliminar el uso de .unwrap() .expect() para funciones que devuelven (): Evita desempaquetar (unwrap()) el resultado de funciones que devuelven (). Utiliza una cadena lógica adecuada para verificar el comportamiento de las funciones.
+
+    Uso correcto de Address::generate(&env): Para crear direcciones virtuales (admin, donantes, etc.), utiliza Address::generate(&env) en lugar de métodos obsoletos o incorrectos.
+
+    Actualización de funciones obsoletas: Utilizar String::from_str(&env, "example") en lugar de String::from_slice(), para alinearse con las prácticas actuales de soroban-sdk. No ocupar .as_str(), no existe.
+
+    Mantener consistencia en el uso de referencias y conversiones: Asegúrate de pasar referencias adecuadas cuando sea necesario, y convierte los valores de manera consistente usando .into_val(&env).
+"""
+
+Crea pruebas para las todas funciones del smart contract libr.rs y asegúrate de incluir comentarios explicativos.
+
+lib.rs:
+"""
+"""
+test.rs:
+"""
+"""
+
+a.5 ##############################################   Prompt para el test_deploy
+##############################################   
+
+
+Quiero que seas...
+Experto en programación y blockchain, en particular en soroban de rust en la blockchain de stellar.
+
+Contexto:
+Quiero hacer aplicaciones que usen la lectnología blockchain de stellar.
+
+Estoy pensando en la entrevista debo llevar una idea y hacerles un live coding y mostrar como la voy desarrollando en vivo, no hay que terminar de desarrollarla, pero si mostrar lo que se haría para desarrolar esa idea. Ya desarrollé el smart contract [nombre del contrato] lib.rs y el test.rs. 
+
+Tengo idea: 
+Hacer una aplicación de donaciones donde tu puedas tener trazabilidad y establecer en un smart contract que si alguien dona y elije que esa plata se vaya a un tipo de gasto, eso se vaya a ese tipo de gasto, con un frontend basado en la aplicacion de paltlabs. 
+
+Qué quiero que salga:
+Quiero que identifiques todas las funciones del smart contract lib.rs
+Quiero que hagas el test_deploy para el smart contract [nombre del contrato] lib.rs considerando como guía de como hacer el test deploy el  title_deploy, hacer un testing de todas las funciones y sus combinaciones de smart contract y que tenga comentarios en el codigo que expliquen cada testeo y función.   
+
+¿Qué te entregaré? ¿Qué quiero que imites?
+Te entregaré un archivo lib.rs que es el smart contract, te voy a entregar el test.rs que es el test, los errrores que me arrojan cuando corro el test_deploy y el test_deploy de referencia. tenemos que testear todas las funciones del smartcontract lib.rs 
+
+lib.rs:
+"""
+"""
+test.rs:
+"""
+"""
+test_deploy referencia: 
+"""
+"""
+errores:
+"""
+"""
+
+
+a.6 ##############################################   Prompt para el frontend
+##############################################   
+##############################################   
+ 
+Rol del Asistente: Quiero que actúes como un experto en programación y blockchain, especializado en Soroban (Rust) en la blockchain de Stellar. Además, debes ser competente en desarrollo frontend con React y TypeScript.
+
+Contexto: Voy a desarrollar aplicaciones que utilicen la blockchain de Stellar. Me estoy preparando para una entrevista en la que debo presentar una idea y hacer un live coding, demostrando cómo desarrollaría la solución. No necesito completar el desarrollo durante la entrevista, pero sí mostrar la dirección y los pasos a seguir.
+
+He desarrollado el smart contract (lib.rs) y su test (test.rs), y ambos ya han sido desplegados y probados. Ahora necesito desarrollar la interfaz frontend, tomando como base una aplicación existente de Paltalabs.
+
+Idea del Proyecto: Quiero visualizar todas las funciones del smart contract [nombre del contrato] (lib.rs). Estas funciones deben ser accesibles desde la interfaz, idealmente mediante elementos como checkboxes o listas desplegables en los formularios. Posteriormente, se generará el componente [nombre del contrato].ts, basado en componenteReferencia.tsx para imitar su estructura, estética y lógica.
+
+Instrucciones para el Código:
+
+    Utiliza comentarios para explicar cada función y línea clave del código.
+    Usa la función contractInvoke para interactuar con el contrato, asegurándote de que todas las funciones y variables de [nombre del contrato] se referencien correctamente.
+    Los resultados de las funciones deben mostrarse con sus respectivos títulos.
+    El formulario para agregar una nueva categoría debe aparecer solo si el usuario es administrador.
+    La interfaz debe actualizarse automáticamente cada 10 segundos.
+
+Proveeré:
+
+    El archivo lib.rs que contiene el smart contract.
+    El componente componenteReferencia.tsx como referencia para diseño y lógica.
+
+Tareas:
+
+    Crear el componente: Desarrolla [nombre del contrato].ts basándote en componenteReferencia.tsx.
+    Documentar el Código: Añade comentarios explicativos para cada función importante, asegurándote de que el código sea claro y fácil de seguir.
+
+Notas Adicionales:
+
+    Evita errores comunes o alucinaciones del modelo, validando cada respuesta antes de proporcionarla.
+    Utiliza delimitadores claros para indicar secciones específicas del código o partes a modificar.
+
+lib.rs:
+"""
+"""
+componenteReferencia.ts:
+"""
+"""
+Idex: 
+"""
+"""
